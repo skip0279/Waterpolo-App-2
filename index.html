@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Water Polo Tracker</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <h1>Water Polo Plus/Minus Tracker</h1>
+  <div>
+    <label>Date: <input type="date" id="gameDate" /></label>
+    <label>Teams: <input type="text" id="teamNames" placeholder="Home vs Away" /></label>
+  </div>
+  <div>
+    <button onclick="updateScore('for')">+ Goal For</button>
+    <span id="scoreDisplay">0 - 0</span>
+    <button onclick="updateScore('against')">+ Goal Against</button>
+  </div>
+  <div style="display:flex;gap:10px;flex-wrap:wrap;">
+    <div style="flex:1;">
+      <h2>Bench</h2>
+      <div id="benchPlayers" class="player-list" ondragover="allowDrop(event)" ondrop="dropToBench(event)"></div>
+    </div>
+    <div style="flex:1;">
+      <h2>In Water</h2>
+      <div id="fieldPlayers" class="player-list water" ondragover="allowDrop(event)" ondrop="dropToField(event)"></div>
+    </div>
+  </div>
+  <div>
+    <h3>Record Goal</h3>
+    <label>Quarter: 
+      <select id="quarter">
+        <option>Q1</option>
+        <option>Q2</option>
+        <option>Q3</option>
+        <option>Q4</option>
+        <option>OT</option>
+      </select>
+    </label>
+    <label>Time: <input type="text" id="goalTime" placeholder="MM:SS" /></label>
+    <label>Scorer: <select id="scorerSelect"></select></label>
+    <label>Assist: 
+      <select id="assistSelect">
+        <option value="">None</option>
+      </select>
+    </label>
+    <button onclick="recordGoal()">Record Goal</button>
+    <button onclick="exportCSV()">Export CSV</button>
+  </div>
+  <table border="1" style="width:100%;margin-top:20px;">
+    <thead><tr><th>Cap</th><th>Name</th><th>G</th><th>A</th><th>+/-</th></tr></thead>
+    <tbody id="statTable"></tbody>
+  </table>
+  <script src="script.js"></script>
+</body>
+</html>
