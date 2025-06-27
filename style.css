@@ -1,5 +1,0 @@
-
-body { font-family: sans-serif; padding: 20px; }
-.player-list { min-height: 60px; border: 1px solid #ccc; padding: 10px; display: flex; flex-wrap: wrap; gap: 5px; }
-.player { padding: 8px 12px; background: #eee; border-radius: 4px; cursor: grab; user-select: none; }
-.water .player { background: #aee; }
