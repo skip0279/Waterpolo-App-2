@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Water Polo Plus/Minus Tracker</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="app">
+    <header>
+      <h1>Water Polo Plus/Minus Tracker</h1>
+      <div>
+        <label>Date: <input type="date" id="gameDate" /></label>
+        <label>Teams: <input type="text" id="teamNames" placeholder="Home vs Away" /></label>
+      </div>
+      <div id="score">
+        <button onclick="updateScore('for')">+ Goal For</button>
+        <span id="scoreDisplay">0 - 0</span>
+        <button onclick="updateScore('against')">+ Goal Against</button>
+      </div>
+    </header>
+
+    <main>
+      <section id="bench">
+        <h2>Bench</h2>
+        <div id="benchPlayers" class="player-list" ondragover="allowDrop(event)" ondrop="dropToBench(event)"></div>
+      </section>
+
+      <section id="field">
+        <h2>In Water</h2>
+        <div id="fieldPlayers" class="player-list water" ondragover="allowDrop(event)" ondrop="dropToField(event)"></div>
+      </section>
+
+      <section id="actions">
+        <h2>Actions</h2>
+        <label>Quarter:
+          <select id="quarter">
+            <option>Q1</option>
+            <option>Q2</option>
+            <option>Q3</option>
+            <option>Q4</option>
+            <option>OT</option>
+          </select>
+        </label>
+        <label>Time (MM:SS): <input id="goalTime" type="text" placeholder="e.g. 2:35" /></label>
+        <label>Scorer:
+          <select id="scorerSelect"></select>
+        </label>
+        <label>Assist:
+          <select id="assistSelect"><option value="">None</option></select>
+        </label>
+        <button onclick="recordGoal()">Record Goal</button>
+        <button onclick="exportCSV()">Export CSV</button>
+      </section>
+
+      <section id="stats">
+        <h2>Stats</h2>
+        <table>
+          <thead>
+            <tr><th>Cap</th><th>Name</th><th>G</th><th>A</th><th>+/-</th></tr>
+          </thead>
+          <tbody id="statTable"></tbody>
+        </table>
+      </section>
+    </main>
+  </div>
+  <script src="script.js"></script>
+</body>
+</html>

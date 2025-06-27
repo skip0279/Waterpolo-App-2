@@ -1,0 +1,6 @@
+body { font-family: sans-serif; padding: 20px; margin:0;}
+.player-list { min-height: 60px; border: 1px solid #ccc; padding: 10px; display:flex; flex-wrap:wrap; gap:5px;}
+.player { padding: 8px 12px; background:#eee; border-radius:4px; cursor:grab; user-select:none; touch-action:none;}
+.water .player { background:#aee;}
+table { width:100%; border-collapse:collapse; margin-top:20px;}
+th,td { border:1px solid #ccc; padding:4px; text-align:center;}
